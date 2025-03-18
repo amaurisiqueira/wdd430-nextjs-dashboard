@@ -32,7 +32,7 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoices() {
 
-  // return 0;
+   
   try {
 
     console.log('process.env.POSTGRES_URL');
@@ -51,8 +51,10 @@ export async function fetchLatestInvoices() {
     }));
     return latestInvoices;
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch the latest invoices.');
+    console.error('Failed to fetch the latest invoices.', error);
+    //throw new Error('Failed to fetch the latest invoices.');
+    return []; 
+    
   }
 }
 
