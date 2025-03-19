@@ -1,7 +1,15 @@
 import Form from '@/app/ui/invoices/create-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchCustomers } from '@/app/lib/data';
+import { Metadata } from 'next';
  
+export const metadata: Metadata = {
+  title: 'Acme create invoice',
+  description: 'Create invoice of the official Next.js Course',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
+
+
 export default async function Page() {
 
   

@@ -2,7 +2,14 @@ import Form from '@/app/ui/invoices/edit-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchInvoiceById, fetchCustomers } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
-
+import { Metadata } from 'next';
+  
+ 
+export const metadata: Metadata = {
+  title: 'Acme edit invoice',
+  description: 'Edit invoice of the official Next.js Course',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   
