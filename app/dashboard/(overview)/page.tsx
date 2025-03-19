@@ -14,7 +14,7 @@ import { RevenueChartSkeleton ,
 export default async function Page() {
 
 
-  /*return ( <h1>fetchLatestInvoices</h1>);*/
+ // return ( <h1>"fetchLatestInvoices"</h1>);
       
   
   const latestInvoices = await fetchLatestInvoices();
@@ -27,8 +27,10 @@ export default async function Page() {
   } = await fetchCardData();
 
  
+     
   return (
-    
+
+  
     <main>
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Dashboard
@@ -50,7 +52,8 @@ export default async function Page() {
       </div>
       
     </main>
+    
   );
-
+ 
   
 }
