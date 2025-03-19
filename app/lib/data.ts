@@ -124,6 +124,10 @@ export async function fetchFilteredInvoices(
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     ` as InvoicesTable[];
 
+
+    console.log(invoices );
+
+
     return invoices;
   } catch (error) {
     console.error('Database Error:', error);
@@ -153,6 +157,13 @@ export async function fetchInvoicesPages(query: string) {
 }
 
 export async function fetchInvoiceById(id: string) {
+
+
+
+console.log(`fetchInvoiceById, la id es:${id}`);
+
+
+
   try {
     const data = await sql `
       SELECT
@@ -164,15 +175,35 @@ export async function fetchInvoiceById(id: string) {
       WHERE invoices.id = ${id};
     ` as InvoiceForm[];
 
+
+    console.log(`fetchInvoiceById, la data es:${data.toString()}`);
+
     const invoice = data.map((invoice) => ({
       ...invoice,
       // Convert amount from cents to dollars
-      amount: invoice.amount / 100,
-    }));
+        amount: invoice.amount / 100,
+        
+      
+        
+
+
+    }
+  
+  
+  ));
+
+  console.log(`fetchInvoiceById, la invoice.length es:${invoice.length }`);
+
+    
+
+    console.log(`fetchInvoiceById, la invoice id es:${invoice[0].id}`);
+    console.log(`fetchInvoiceById, la invoice amount es:${invoice[0].amount}`);
+
+
 
     return invoice[0];
   } catch (error) {
-    console.error('Database Error:', error);
+      console.error('Database Error:', error);
     throw new Error('Failed to fetch invoice.');
   }
 }

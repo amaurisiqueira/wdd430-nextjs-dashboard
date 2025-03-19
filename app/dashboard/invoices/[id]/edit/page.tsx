@@ -18,10 +18,24 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   ]);
 
 
-  if (!invoice) {
+
+  console.log(`Invoice recibido: ${JSON.stringify(invoice)}`);
+  console.log(`ID recibido: ${id}`);
+
+
+  
+console.log(`not found : ${invoice}` );
+console.log(`not id : ${invoice.id}` );
+console.log(`not customer_id: ${invoice.customer_id}` );
+console.log(`not amount: ${invoice.amount}` );
+  
+
+  if (!invoice ) {
     notFound();
   }
   
+console.log(`Despues de not found Recibi esta id: ${id}` );
+
   return (
     <main>
       <Breadcrumbs
