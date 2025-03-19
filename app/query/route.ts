@@ -1,4 +1,9 @@
 import { neon } from '@neondatabase/serverless';
+
+
+
+console.log(`variable POSTGRES_URL : ${process.env.POSTGRES_URL}`);
+
 const sql = neon(`${process.env.POSTGRES_URL}`);
 
  async function listInvoices() {
